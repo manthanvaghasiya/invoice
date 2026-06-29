@@ -1,0 +1,151 @@
+.container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+    height: calc(100vh - 50px);
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.invoiceForm {
+    flex: 1;
+    min-width: 400px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+}
+.invoiceForm h2 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+    color: #111;
+    border-bottom: 2px solid #FFBF00;
+    padding-bottom: 10px;
+}
+.formSection { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+.formGroup { margin-bottom: 15px; }
+.formGroup label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
+.formGroup input, .formGroup textarea {
+    width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; font-family: 'Montserrat', sans-serif; box-sizing: border-box;
+}
+.formGroup input:focus, .formGroup textarea:focus { border-color: #111; outline: none; }
+.itemRow { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; flex-wrap: wrap;}
+.itemRow input { padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Montserrat', sans-serif; box-sizing: border-box;}
+.itemDesc { flex: 2; min-width: 150px;}
+.itemSub { flex: 3; min-width: 200px;}
+.itemPrice { flex: 1; min-width: 100px;}
+.checkboxWrap { display: flex; align-items: center; gap: 5px; flex: 1; min-width: 100px; font-size: 12px; font-weight: 600;}
+.checkboxWrap input[type="checkbox"] { width: 18px; height: 18px;}
+.removeBtn { background: #e74c3c; padding: 10px; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.addBtn { background-color: #111; color: white; padding: 10px 15px; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; margin-top: 10px; }
+.downloadBtn { background-color: #FFBF00; width: 100%; padding: 15px; font-size: 1.2rem; font-weight: 600; margin-top: 20px; color: #111; border: none; border-radius: 8px; cursor: pointer;}
+.saveBtn { background-color: #111; width: 100%; padding: 15px; font-size: 1.2rem; font-weight: 600; margin-top: 10px; color: white; border: none; border-radius: 8px; cursor: pointer;}
+
+/* --- Invoice Preview Styles (Image Match) --- */
+.previewWrapper {
+    flex: 0 0 850px;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+.previewContainer {
+    width: 850px;
+    background-color: #ffffff;
+    margin: 0;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 40px;
+}
+.topBanner { background-color: #1a1a1a; padding: 25px 40px 110px; display: flex; justify-content: space-between; align-items: flex-start; }
+.logoSection img { height: 75px; background-color: #fff; border-radius: 8px; object-fit: contain; padding: 5px; max-width: 300px;}
+.sideBox { background-color: rgba(255, 255, 255, 0.05); color: #ffffff; padding: 6px 22px 20px 22px; border-radius: 12px; font-size: 14px; font-weight: 500; border: 1px solid rgba(255, 255, 255, 0.2); text-align: right; display: block; margin-top: 8px; line-height: 1.4; }
+
+.billToSection { background-color: #E6F7F8; color: #111; margin: -70px 40px 0 40px; position: relative; z-index: 2; padding: 30px 40px; border-radius: 15px; display: flex; justify-content: space-between; align-items: flex-start; }
+.leftCol { width: 55%; }
+.rightCol { width: 40%; text-align: right; }
+.sectionHeading { font-size: 16px; font-weight: 700; color: #555; margin: 0; margin-bottom: 15px;}
+.billToSection .sectionHeading { color: #555; }
+.clientName { font-size: 24px !important; font-weight: 700; color: #111; margin: 0 0 5px 0 !important; font-family: 'Playfair Display', serif;}
+.billToSection .clientName { color: #111; }
+.billToSection p { margin: 0; line-height: 1.6; font-size: 13px; color: #555;}
+.contactLine { display: flex; align-items: center; justify-content: flex-start; margin-top: 10px; }
+.iconPlaceholder { width: 28px; height: 28px; background-color: #ffffff; color: #1C95A3; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0; font-size: 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.iconPlaceholder.location { background-color: #ffffff; color: #1C95A3;}
+.invoiceInfoGroup p { margin-bottom: 3px; font-size: 13px;}
+.invoiceInfoGroup p strong { font-weight: 700; color: #111;}
+.billToSection .invoiceInfoGroup p strong { color: #111; }
+.amountBoxWrapper { background-color: #1a1a1a; color: #ffffff; padding: 15px 25px; border-radius: 12px; display: inline-block; margin-top: 15px; text-align: center;}
+.amountBoxLabel { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px;}
+.amountBox { font-size: 22px; font-weight: 600; }
+
+.cardsSection { padding: 30px 40px; }
+.cardsSection h3 { font-size: 16px; font-weight: 700; color: #111; margin: 0 0 5px 0;}
+.cardsSection p.subtitle { font-size: 13px; color: #777; margin: 0 0 20px 0;}
+.cardsGrid { display: flex; gap: 20px; justify-content: space-between; }
+.card { flex: 1; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;}
+.cardTotal { background-color: #F3F4F6; color: #111; border: 1px solid #E5E7EB; }
+.cardTotal .progressBarBg { background: rgba(0,0,0,0.1); }
+.cardTotal .progressBarFill { background: #111; }
+.cardPaid { background-color: #E6F7F8; color: #111; }
+.cardDue { background-color: #FFF4D4; color: #111; border: 1px solid #FDE68A; }
+.cardLabel { font-size: 10px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px;}
+.cardValue { font-size: 22px; font-weight: 700; margin-bottom: 5px;}
+.cardPercent { font-size: 11px; font-weight: 500; opacity: 0.9;}
+.progressBarBg { width: 100%; height: 4px; background: rgba(0,0,0,0.1); border-radius: 2px; margin-top: 15px;}
+.progressBarFill { height: 100%; background: #111; border-radius: 2px;}
+.cardPaid .progressBarBg { background: rgba(0,0,0,0.1); }
+.cardPaid .progressBarFill { background: #1C95A3; }
+.cardDue .progressBarBg { background: rgba(0,0,0,0.1); }
+.cardDue .progressBarFill { background: #F59E0B; }
+
+.scheduleSection { padding: 10px 40px; }
+.scheduleSection h3 { font-size: 16px; font-weight: 700; color: #111; margin: 0 0 5px 0;}
+.scheduleSection p.subtitle { font-size: 13px; color: #777; margin: 0 0 20px 0;}
+
+.tableWrapper { border-radius: 10px; overflow: hidden; border: 1px solid #eee; }
+.tableHeader { background-color: #1a1a1a; color: #fff; display: flex; padding: 15px 20px; font-size: 11px; font-weight: 700; letter-spacing: 1px;}
+.colId { width: 5%; text-align: center; }
+.colDesc { width: 55%; padding-left: 15px; }
+.colAmount { width: 20%; text-align: right; }
+.colStatus { width: 20%; text-align: center; }
+
+.rowPaid { background-color: #f0f7f7; display: flex; padding: 20px; border-bottom: 1px solid #fff; align-items: center;}
+.rowPending { background-color: #F9FAFB; display: flex; padding: 20px; border-bottom: 1px solid #fff; align-items: center;}
+.rowId { width: 5%; text-align: center; font-weight: 700; color: #1C95A3; font-size: 14px;}
+.rowPending .rowId { color: #555; }
+.rowDesc { width: 55%; padding-left: 15px; }
+.rowTitle { font-weight: 700; color: #111; font-size: 14px; margin-bottom: 4px;}
+.rowSubtitle { font-size: 11px; color: #777;}
+.rowAmount { width: 20%; text-align: right; font-weight: 700; font-size: 14px; color: #111;}
+.rowStatus { width: 20%; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+
+.pillPaid { background-color: #E6F7F8; color: #111; padding: 6px 14px; border-radius: 99px; font-size: 11px; font-weight: 800; letter-spacing: 1px; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;}
+.pillPending { color: #b38600; padding: 5px 12px; font-size: 10px; font-weight: 700; letter-spacing: 1px;}
+.statusDate { font-size: 10px; color: #777; margin-top: 5px;}
+
+.tableFooter { background-color: #fffaf0; display: flex; padding: 20px; font-weight: 800; align-items: center; border-top: 3px solid #FFBF00; }
+
+.bottomFooter { padding: 40px; display: flex; justify-content: space-between; align-items: flex-end;}
+.paymentDetails { width: 45%; }
+.paymentDetails h3 { font-size: 16px; font-weight: 700; margin: 0 0 10px 0;}
+.paymentDetails p { font-size: 13px; margin: 5px 0; color: #555;}
+.paymentDetails strong { color: #111; }
+.qrWrapper { display: flex; flex-direction: column; align-items: flex-start; margin-top: 15px;}
+.qrCodeImg { width: 120px; height: 120px; background: #fff; object-fit: contain; }
+.scanToPay { font-size: 10px; font-weight: 700; color: #777; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;}
+
+.signatureBlock { width: 45%; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.signatureImg { height: 80px; object-fit: contain; max-width: 200px; margin-bottom: -15px; position: relative; z-index: 1; pointer-events: none;}
+.signatureLine { height: 1px; background-color: #888; width: 200px; margin: 0 auto 8px auto; position: relative; z-index: 0;}
+.signatureTitle { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 10px;}
+.contactDetail { font-size: 12px; color: #777; margin-bottom: 5px; display: flex; align-items: center; justify-content: center; gap: 8px;}
