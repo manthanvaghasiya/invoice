@@ -37,7 +37,13 @@ export async function PUT(request, { params }) {
     return NextResponse.json(updatedInvoice, { status: 200 });
   } catch (error) {
     console.error('Error updating invoice:', error);
-    return NextResponse.json({ error: 'Failed to update invoice' }, { status: 500 });
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.invoiceNo) {
+      return NextResponse.json(
+        { error: 'Invoice number already exists. Please use a unique Invoice No.' },
+        { status: 409 }
+      );
+    }
+    return NextResponse.json({ error: error.message || 'Failed to update invoice' }, { status: 500 });
   }
 }
 

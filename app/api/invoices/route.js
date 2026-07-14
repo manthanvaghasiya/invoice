@@ -26,6 +26,17 @@ export async function POST(request) {
     return NextResponse.json(newInvoice, { status: 201 });
   } catch (error) {
     console.error('Error creating invoice:', error);
-    return NextResponse.json({ error: 'Failed to create invoice', details: error.message }, { status: 500 });
+    // Check for duplicate key error (MongoDB code 11000)
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.invoiceNo) {
+      return NextResponse.json(
+        { error: 'Invoice number already exists. Please use a unique Invoice No.' },
+        { status: 409 }
+      );
+    }
+    
+    return NextResponse.json(
+      { error: error.message || 'Failed to create invoice', details: error },
+      { status: 500 }
+    );
   }
 }

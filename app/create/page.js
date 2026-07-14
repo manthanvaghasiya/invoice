@@ -11,14 +11,18 @@ export default function CreateInvoice() {
   const router = useRouter();
   const previewRef = useRef(null);
 
+  const today = new Date();
+  const defaultDate = today.toISOString().split('T')[0];
+  const defaultInvoiceNo = defaultDate.replace(/-/g, '') + Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+
   const [formData, setFormData] = useState({
     salespersonName: 'Manthan Vaghasiya\nFounder - Webiox Digital Solution',
     clientName: 'Mr. Nitinbhai thummar',
     clientTitle: 'Founder - Sadguru car surat',
     clientMobile: '+91 099136 34447',
     clientAddress: 'Trilok Car Bazar, Simada, Canal, BRTS Rd,\nCanal Chokdi, Varachha, Surat, Gujarat',
-    invoiceNo: '20260508',
-    invoiceDate: '2026-05-08',
+    invoiceNo: defaultInvoiceNo,
+    invoiceDate: defaultDate,
     bankAccount: '',
     ifscCode: '',
     upiNumber: '+91 9664736245',
